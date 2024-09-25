@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Projeto Tela Fria
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O **Tela Fria** é um site de exibição de filmes, onde os usuários podem buscar e visualizar informações de diferentes filmes utilizando a API pública do OMDB. O projeto apresenta uma interface intuitiva com um sistema de busca e uma imagem de fundo fixa, garantindo uma experiência de navegação agradável.
 
-## Available Scripts
+## Estrutura do Projeto
 
-In the project directory, you can run:
+### 1. **MovieList.js**
+Este componente React é responsável por buscar filmes da API OMDB, exibi-los em cartões (cards), e gerenciar a interação do usuário.
 
-### `npm start`
+#### Funcionalidades:
+- **Busca de Filmes**: O site faz uma busca de filmes pré-definidos (ex: Avengers, Inception) e exibe seus títulos e imagens.
+- **Sistema de Busca**: Um campo de busca permite ao usuário procurar filmes específicos e visualizar os resultados em tempo real.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#### Código:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```javascript
+import React, { useState, useEffect } from 'react';
+import './MovieList.css';
 
-### `npm test`
+const MovieList = () => {
+    const [movies, setMovies] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    const fetchMovies = async () => {
+        const movieTitles = ["avengers", "inception", "interstellar", "matrix", "frozen", "titanic", "gladiator", "avatar", "spider-man", "batman"];
+        const moviePromises = movieTitles.map(title => 
+            fetch(`http://www.omdbapi.com/?s=${title}&apikey=57746edf`)
+        );
 
-### `npm run build`
+        try {
+            const responses = await Promise.all(moviePromises);
+            const dataPromises = responses.map(res => res.json());
+            const dataResults = await Promise.all(dataPromises);
+            const allMovies = dataResults.flatMap(data => data.Search || []);
+            setMovies(allMovies);
+        } catch (error) {
+            console.error("Erro ao buscar filmes:", error);
+        }
+    };
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    useEffect(() => {
+        fetchMovies();
+    }, []);
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    const filteredMovies = movies.filter(movie =>
+        movie.Title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    return (
+        <div className="movie-list-container">
+            <h2>Tela Fria</h2>
+            <input
+                type="text"
+                placeholder="Buscar filme..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+            />
+            
+            <div className="movie-container">
+                {filteredMovies.map((movie, index) => (
+                    <div key={movie.imdbID} className="movie-card">
+                        <img src={movie.Poster} alt={movie.Title} />
+                        <h3>{movie.Title}</h3>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default MovieList;
