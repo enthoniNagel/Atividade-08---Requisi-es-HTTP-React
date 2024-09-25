@@ -11,6 +11,19 @@ Este componente React é responsável por buscar filmes da API OMDB, exibi-los e
 - **Busca de Filmes**: O site faz uma busca de filmes pré-definidos (ex: Avengers, Inception) e exibe seus títulos e imagens.
 - **Sistema de Busca**: Um campo de busca permite ao usuário procurar filmes específicos e visualizar os resultados em tempo real.
 
+## Mudanças Recentes
+
+- Remoção de comentários desnecessários no código para melhor legibilidade e organização.
+- Melhorias gerais no código.
+
+## Ícone Representativo
+![Ícone de Filme](https://cdn-icons-png.flaticon.com/512/3574/3574820.png)
+
+Fonte do ícone: [Flaticon](https://www.flaticon.com/br/icone-gratis/assistindo-um-filme_3574820?term=filme&related_id=3574820)
+
+---
+
+Esse ícone representa a temática do projeto relacionado à API de filmes.
 <<<<<<< HEAD
 #### Código:
 
@@ -70,20 +83,6 @@ const MovieList = () => {
     );
 };
 
-=======
-## Mudanças Recentes
-
-- Remoção de comentários desnecessários no código para melhor legibilidade e organização.
-- Melhorias gerais no código.
-
-## Ícone Representativo
-![Ícone de Filme](https://cdn-icons-png.flaticon.com/512/3574/3574820.png)
-
-Fonte do ícone: [Flaticon](https://www.flaticon.com/br/icone-gratis/assistindo-um-filme_3574820?term=filme&related_id=3574820)
-
----
-
-Esse ícone representa a temática do projeto relacionado à API de filmes.
 
 #### Código:
 
