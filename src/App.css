@@ -38,12 +38,12 @@
 }
 body {
   background-image: url('https://cdn.leonardo.ai/users/03a4e8e9-4f81-40cc-83c2-c5c4475136fe/generations/285e5a22-17c8-4918-bce9-09d388d8e729/Leonardo_Phoenix_A_dimly_lit_empty_movie_theater_with_a_row_of_3.jpg'); 
-  background-size: cover; /* Faz a imagem cobrir todo o fundo */
-  background-position: center; /* Centraliza a imagem no fundo */
-  background-repeat: no-repeat; /* Evita que a imagem se repita */
-  height: 100vh; /* Faz o corpo ocupar toda a altura da janela */
-  margin: 0; /* Remove a margem padrão do body */
-  color: white; /* Ajuste a cor do texto conforme necessário */
-  background-attachment: fixed; /* Esta linha fixa o fundo */
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 100vh; 
+  margin: 0; 
+  color: white; 
+  background-attachment: fixed; 
 }
 

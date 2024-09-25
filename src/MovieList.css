@@ -1,44 +1,44 @@
 .movie-list-container {
-    text-align: center; /* Centraliza o texto do container */
-    padding: 20px; /* Adiciona espaço ao redor */
+    text-align: center; 
+    padding: 20px; 
 }
 
 .search-input {
-    margin-bottom: 20px; /* Espaçamento abaixo do campo de busca */
-    padding: 10px; /* Adiciona preenchimento ao campo */
-    width: 300px; /* Largura do campo de busca */
-    border: 1px solid #ccc; /* Borda do campo */
-    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 20px; 
+    padding: 10px; 
+    width: 300px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
 }
 
 .movie-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que os filmes se movam para a próxima linha se não houver espaço */
-    justify-content: center; /* Centraliza os itens horizontalmente */
-    margin: 20px 0; /* Adiciona margem acima e abaixo do container */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    margin: 20px 0; 
 }
 
 .movie-card {
-    margin: 10px; /* Espaçamento entre os cartões de filmes */
-    text-align: center; /* Centraliza o texto dentro do cartão */
-    cursor: pointer; /* Altera o cursor para indicar que é clicável */
-    transition: transform 0.2s; /* Efeito de transição ao passar o mouse */
+    margin: 10px; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: transform 0.2s; 
 }
 
 .movie-card:hover {
-    transform: scale(1.05); /* Aumenta o tamanho do cartão ao passar o mouse */
+    transform: scale(1.05); 
 }
 
 .movie-card img {
-    max-width: 150px; /* Limita a largura máxima da imagem */
-    height: auto; /* Mantém a proporção da imagem */
+    max-width: 150px; 
+    height: auto; 
 }
 
-/* Estilos do modal - Adicione estes estilos no seu arquivo MovieModal.css */
+
 .modal {
-    /* Estilos do modal aqui */
+    
 }
 
 .overlay {
-    /* Estilos do overlay aqui */
+
 }

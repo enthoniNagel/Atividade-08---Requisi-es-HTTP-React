@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MovieModal from './MovieModal';
-import './MovieList.css'; // Importar o CSS para estilização
+import './MovieList.css'; 
 
 const MovieList = () => {
     const [movies, setMovies] = useState([]);
@@ -8,7 +8,7 @@ const MovieList = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
 
-    // Função para buscar filmes
+    
     const fetchMovies = async () => {
         const movieTitles = ["avengers", "inception", "interstellar", "matrix", "frozen", "titanic", "gladiator", "avatar", "spider-man", "batman"];
         const moviePromises = movieTitles.map(title => 
@@ -20,7 +20,7 @@ const MovieList = () => {
             const dataPromises = responses.map(res => res.json());
             const dataResults = await Promise.all(dataPromises);
 
-            // Coletando todos os filmes
+            
             const allMovies = dataResults.flatMap(data => data.Search || []);
             setMovies(allMovies);
         } catch (error) {
@@ -43,7 +43,7 @@ const MovieList = () => {
 
     return (
         <div className="movie-list-container">
-            <h2>ela Fria</h2>
+            <h2>Bem-vindo ao Tela Fria!</h2>
             <input
                 type="text"
                 placeholder="Buscar filme..."
