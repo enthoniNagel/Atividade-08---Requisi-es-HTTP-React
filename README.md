@@ -48,7 +48,7 @@ const MovieList = () => {
 
     return (
         <div className="movie-list-container">
-            <h2>Tela Fria</h2>
+            <h2>Bem-vindo ao Tela Fria!</h2>
             <input
                 type="text"
                 placeholder="Buscar filme..."
