@@ -1,0 +1,18 @@
+/* src/MovieModal.css */
+
+.modal {
+    width: 80%;
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.rating {
+    margin: 10px 0;
+}
